@@ -1,0 +1,29 @@
+# Data configuration
+data:
+  raw_path: "data/raw/brain_stroke.csv"
+  holdout_path: "data/raw/full_filled_stroke_data (1).csv"
+
+  target_column: "stroke"
+
+  # Feature categorization
+  categorical_features:
+    - gender
+    - ever_married
+    - work_type
+    - Residence_type
+    - smoking_status
+
+  numerical_features:
+    - age
+    - avg_glucose_level
+    - bmi
+
+  binary_features:
+    - hypertension
+    - heart_disease
+
+  # Train/test split
+  test_size: 0.2
+  random_state: 42
+  stratify: true
+

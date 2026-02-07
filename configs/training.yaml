@@ -1,0 +1,42 @@
+# Training configuration
+training:
+  # Resampling strategy: smoteenn | adasyn | borderline_smote | cost_sensitive | none
+  resampling_strategy: "smoteenn"
+
+  resampling_params:
+    smoteenn:
+      random_state: 42
+      sampling_strategy: "auto"
+    adasyn:
+      random_state: 42
+      sampling_strategy: "auto"
+    borderline_smote:
+      random_state: 42
+      kind: "borderline-1"
+
+  # Feature engineering toggles
+  feature_engineering:
+    age_bins: true
+    bmi_categories: true
+    glucose_categories: true
+    interaction_features: true
+    risk_score: true
+
+  # Cross-validation
+  cv_folds: 5
+  scoring_metric: "f1"        # primary metric for optimization
+
+  # Threshold tuning
+  threshold_tuning:
+    enabled: true
+    method: "f1"               # f1 | recall_target
+    recall_target: 0.80        # used if method is recall_target
+
+  # MLflow
+  mlflow:
+    experiment_name: "stroke-risk-prediction"
+    tracking_uri: "mlruns"
+
+  # Random seed for reproducibility
+  random_state: 42
+
